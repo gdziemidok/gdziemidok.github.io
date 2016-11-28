@@ -223,21 +223,22 @@ body{
     display: inline-block;
     position: relative;
     float:right;
-    padding-right:10px;
+    padding-right:15px;
 
 }
 
 
 .nav ul {
     list-style: none;
-    width: 30%;
-    word-spacing: 10px;
+    width: 70%;
+    word-spacing: 15px;
     float:right;
 }
 
 .time{
-float: left;
-width: 100px;
+
+width: 300px;
+font-size: 25px;
 }
 
 

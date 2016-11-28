@@ -12,10 +12,6 @@ $(function(){
 	var widthtext = text.width();
 	var heighttext = text.height();
 
-
-	
-
-
 cv.delay(500).animate({width: 5*width+'px', height: 5*height+'px'},2000);
 cv.animate({left:'-=100px'},1000);
 
@@ -39,7 +35,7 @@ $(function(){
 	var skills  = $('.skills');
 	var textskil = $('.content2');
 	var obrazek = $('.obrazek');
-
+				console.log(obrazek);
 	
 		skills.on('click',function(){
 			console.log(obrazek);
@@ -53,7 +49,7 @@ $(function(){
 		});
 	});
 
-/*spadnięcie eszystkich planet do dołu okna przeglądarki*/
+/*Uruchomienie animacji*/
 $(function(){
 
 	var animcss=$('.animcss')
@@ -90,8 +86,8 @@ $(function(){
 			favour.animate({top:'-=450px'},500);	
 	favour.animate({top:'+=430px',left:'-=250px'},300,function(){
 		cv.animate({top:'+=250px'},300, function(){
-			favour.animate({top:'-=500px'},500);
-	favour.animate({top:'+=780px',left:'-=280px'},500, function(){
+			favour.animate({top:'-=440px'},500);
+	favour.animate({top:'+=700px',left:'-=280px'},500, function(){
 		name.animate({ top: '-=400px' },1000);	
 	name.animate({ top: '+=200px',left:'+=550px' },1000, function(){
 		name.animate({width: 2*width +'px', height: 2*height +'px'},1000,function(){
@@ -153,19 +149,55 @@ $(function(){
 		var portfolioshow =$('.portfolioshow')
 		var text1 = $('.text1');
 		portfolio.on('click',function(){
-			portfolio.removeClass('portfolio');
-			portfolio.addClass('portfolioshow');
-			text1.text( 'Prace na githubie');
+
+		if (portfolio.hasClass('portfolio'))
+
+			{ portfolio.removeClass('portfolio');
+			  portfolio.addClass('portfolioshow');
+			  text1.text( 'Prace na githubie');
+
+	}	else {
+
+			portfolio.removeClass('portfolioshow');
+			portfolio.addClass('portfolio');
+			text1.text( 'Co zrobiłem');
+
+	}	
+			
 
 		});
 
     		
-	});				
+	});	
+
+/*uruchomienie zegara*/
 		
-    		
+   $(function(){ 		
 			
+function odliczanie(){
 
+		var dzisiaj = new Date();
+		
+		var dzien = dzisiaj.getDate();
+		var miesiac = dzisiaj.getMonth()+1;
+		var rok = dzisiaj.getFullYear();
+		
+		var godzina = dzisiaj.getHours();
+		if (godzina<10) godzina = "0"+godzina;
+		
+		var minuta = dzisiaj.getMinutes();
+		if (minuta<10) minuta = "0"+minuta;
+		
+		var sekunda = dzisiaj.getSeconds();
+		if (sekunda<10) sekunda = "0"+sekunda;
+		
+		document.querySelector(".time").innerHTML = 
+		 dzien+"/"+miesiac+"/"+rok+" | "+godzina+":"+minuta+":"+sekunda;
+		 
+		 setTimeout("odliczanie()",1000);
+	}
 
+});
 
 
 
